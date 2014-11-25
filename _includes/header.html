@@ -1,8 +1,7 @@
-<header class="container site-header">
+<header class="site-header">
 
-  <div class="wrapper">
-
-<nav class="navbar " role="navigation">
+<div class="main-navbar">
+<nav class="navbar container" role="navigation">
     <div class="navbar-header">
 	    <a class="navbar-brand" href="#"><img src="/img/logo.png" height="45" /></a>
 		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -31,20 +30,14 @@
 	  </ul>
   </div><!--/.navbar-collapse -->
 </nav>
+</div>
 
+<div class="head-bg">
+
+	<div class="container">
     <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+	</div>
 
-    <nav class="site-nav">
-
-      <div class="trigger">
-        {% for page in site.pages %}
-          {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </nav>
-
-  </div>
+</div>
 
 </header>
