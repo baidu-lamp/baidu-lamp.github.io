@@ -1,7 +1,9 @@
 ---
 layout: default
 ---
-<div class="post">
+
+<div class="row">
+<div class="post col-md-9">
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
@@ -17,7 +19,7 @@ layout: default
   <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'baidu-lamp'; // required: replace example with your forum shortname
+        var disqus_shortname = "{{ site.disqus_id }}";
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
@@ -30,7 +32,7 @@ layout: default
   {% else %}
 	<div class="ds-thread" data-thread-key="{{ page.title | slugify }}" data-title="{{ page.title }}" data-url=""></div>
 	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"baidu-lamp"};
+	var duoshuoQuery = {short_name:"{{ site.duoshuo_id }}"};
 		(function() {
 			var ds = document.createElement('script');
 			ds.type = 'text/javascript';ds.async = true;
@@ -42,5 +44,36 @@ layout: default
 		</script>
 	<!-- 多说公共JS代码 end -->
   {% endif %}
+  </div>
 
+  <div class="col-md-3">
+		{% for post in site.related_posts %}
+		  <li>
+			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+			<h2>
+			  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+			</h2>
+		  </li>
+		{% endfor %}
+
+    <div class="last-comments">
+        <!-- 多说最新评论 start -->
+        <div class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+        <!-- 多说最新评论 end -->
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:"{{ site.duoshuo_id }}"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        </script>
+        <!-- 多说公共JS代码 end -->
+    </div>
+  </div>
 </div>

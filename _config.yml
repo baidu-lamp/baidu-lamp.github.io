@@ -11,5 +11,8 @@ url: "http://lamp.baidu.com" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  baidu-lamp
 
+duoshuo_id: baidu-lamp
+disqus_id: baidu-lamp
+
 # Build settings
 markdown: kramdown
