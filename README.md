@@ -1,4 +1,4 @@
-baidu-lamp.github.io
+Welcome
 ====================
 
-Source code of Baidu LAMP Tech <http://lamp.baidu.com>
+Website of Baidu LAMP Tech <http://lamp.baidu.com>
