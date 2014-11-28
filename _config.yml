@@ -1,14 +1,23 @@
-# Site settings
 title: Baidu Engineering
 email: reeze.xia@gmail.com
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: ""
 permalink: pretty
-url: "http://lamp.baidu.com" # the base hostname & protocol for your site
+url: "http://lamp.baidu.com"
 twitter_username: reeze_xia
 github_username:  baidu-lamp
+
+pageinate: 8
+pageinate_path: "posts/page/:num"
 
 duoshuo_id: baidu-lamp
 disqus_id: baidu-lamp
 
-# Build settings
-markdown: kramdown
+markdown: redcarpet
+redcarpet:
+  extensions: ["table", "autolink"]
+
+post_defaults:
+  layout: post
+  lang: cn
+  has_en: false
+  page_id: post

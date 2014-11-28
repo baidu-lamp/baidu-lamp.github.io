@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Baidu LAMP Tech blog lauched"
+author: reeze
 date:   2014-10-11 00:15:04
 ---
 
