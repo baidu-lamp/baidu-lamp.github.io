@@ -41,7 +41,7 @@ HHVM是HipHop Interpreter的改进版，方便调试使用，性能只有hphpc�
 
 所谓旁路阶段是我们的业务任然使用Zend PHP，但是一小部分功能使用HHVM来做，主要的业务通过RPC的方式来进行通信。这样运行环境就隔离开了。
 
-{<1>}![](/content/images/2014/11/hhvm-side-1.png)
+![](/content/images/2014/11/hhvm-side-1.png)
 
 比如我们为了确认迁移的收益，我们使用HHVM去处理消耗CPU较大，而且比较容易迁移的代码，比如Smarty渲染占了我们业务性能的60%，所以我们把这个逻辑单独抽取出来放到HHVM中运行，其他的逻辑依旧在Zend运行，也就是把应用拆成了2个部分分别运行，那么这时我们就需要考虑如下几个问题：
 
@@ -64,7 +64,8 @@ HHVM是HipHop Interpreter的改进版，方便调试使用，性能只有hphpc�
    vm-tcspace(监控tc状态，一般astub和acode会超出阀值，动态翻译时此值会根据你调用函数更新后进行上涨）
    当超过一定阀值后会进行报警告知OP，然后进行相应处理
 ###全量阶段
-{<2>}![](/content/images/2014/11/hhvm-full-1.png)
+![](/content/images/2014/11/hhvm-full-1.png)
+
 全量阶段主要是在功能完善后（扩展），去掉了共享内存这个中间层，直接上线整个应用，此时的通信就直接是web server连接hhvm，在hhvm失败时进行容错容灾处理（同旁路阶段处理）
 
 **<span style="color:red">注:</span>**
