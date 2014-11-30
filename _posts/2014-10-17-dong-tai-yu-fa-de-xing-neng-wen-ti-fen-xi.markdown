@@ -124,7 +124,8 @@ evalFilename是eval的包含文件+行号作为eval 的文件名，如：
 然后通过compileEvalString函数进行eval的编译；
 
 **compileEvalString实现：**
-{<4>}![](/content/images/2014/10/eval2.jpg)
+
+![](/content/images/2014/10/eval2.jpg)
 
 上面篮框处是执行eval编译的代码；
 EvaledUnitsMap 是eval unit map类型（key是eval的代码，value是unit）
@@ -141,7 +142,7 @@ s_evaledUnits 是保存已经eval 的unit 的静态变量；
 ###create_function
 create_function 和 eval是类似的都是动态语法，但是create_function其实比eval使用起来更加可怕，如果不加使用限制不仅仅影响性能，而且还会造成内存泄露这样的问题，除了内存泄露还会造成jit cache的猛烈增长；
 下面我们看下create_function的实现：
-{<5>}![](/content/images/2014/11/create_function.jpg)
+![](/content/images/2014/11/create_function.jpg)
 
 首先我们看下create_function,这里只要进入函数，那么每次都会进行编译，这块还不如eval函数，至少eval函数每次还会在s_evaledUnits中判断是否有此code,但是其实就算把create_function 的内容也放入到一个map中去保存起来，只要是动态的构造都会出现问题的；
 其实如果只是create_function的话只是构造函数，但是只要调用话就会增加jit cache了，因为这里的调用每次的函数都是新的functionid,所以在jit判断时就找不到这个函数了，认为就更改了，所以就每次都翻译了（因为判断函数是否变更是和funcId和offset有关，而这里每次都会构造新的func，所以 jit也会每次增加），<span style="color:red">这样的调用是很危险的(每次都编译+翻译)</span>，性能会很低，比eval还要危险，<span style="color:red">所以不建议用create_function</span>;
