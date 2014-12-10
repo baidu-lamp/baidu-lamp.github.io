@@ -26,3 +26,6 @@ collections:
   slides:
     output: true
     permalink: /slides/:path/
+  hhvm:
+    output: true
+    permalink: /hhvm/:path/
