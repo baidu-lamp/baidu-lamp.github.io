@@ -1,0 +1,8 @@
+- name: HHVM at Baidu
+  intro: A hhvm extension for msgpack
+  cover: /img/slides/hhvm-at-baidu.png
+  file: /content/slides/hhvm-at-baidu.pdf
+- name: Introduction to HHVM
+  intro: A hhvm extension for msgpack
+  cover: /img/slides/introduction-to-hhvm.png
+  file: /content/slides/introduction-to-hhvm.pdf

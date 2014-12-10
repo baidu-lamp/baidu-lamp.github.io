@@ -1,0 +1,4 @@
+- name: msgpack-hhvm
+  github: https://github.com/baidu-lamp/msgpack-hhvm
+  intro: A hhvm extension for msgpack
+  icon: /img/project/msgpack-hhvm.png

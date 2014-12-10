@@ -21,3 +21,8 @@ post_defaults:
   lang: cn
   has_en: false
   page_id: post
+
+collections:
+  slides:
+    output: true
+    permalink: /slides/:path/

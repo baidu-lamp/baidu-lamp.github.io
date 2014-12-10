@@ -5,18 +5,16 @@ layout: default
 <div class="home row">
 
   <div class="postsi col-md-9">
-	  <h1 class="page-heading">Posts</h1>
-
 	  <ul class="post-list">
 		{% for post in site.posts %}
 		  {% if post.lang != "en" %}
 		  <li>
-			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
 			<h2>
 			  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 			</h2>
-			<p>{{ post.content | strip_html | truncatewords:30}}</p>
+			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+			<p>{{ post.content | strip_html | truncatewords:13 }}</p>
 		  </li>
 		  {% endif %}
 		{% endfor %}
@@ -25,9 +23,25 @@ layout: default
   </div>
 
   <div class="side col-md-3">
-    TODO opensource and slides
+    <div class="opensource">
+	  <h4>Opensource</h4>
+	  <ul>
+	  {% for project in site.data.projects %}
+	    <li>{{ project.name}}</li>
+	  {% endfor %}
+	</div>
+	<div class="slides">
+		<h4>Slides</h4>
+		{% for slide in site.slides %}
+		  <div class="">
+			<a target="_blank" href="{{ slide.url }}">
+			<div>
+			  <img src="{{ slide.cover }}" />
+			</div>
+			</a>
+		  </div>
+		{% endfor %}
+	</div>
   </div>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>

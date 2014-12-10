@@ -1,0 +1,97 @@
+---
+layout: default
+---
+
+<div class="row">
+<div class="post col-md-9">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">
+	{% for author in site.data.authors %}
+	  {% if author.author == page.author %}
+	    {% assign page_author = author %}
+	    <img class="avatar" src="{{ author.avatar }}" />
+	  {% endif %}
+	{% endfor %}
+	{% if page.author %}
+	  {% if page_author and page_author.url %}
+	    <a href="{{ page_author.url }}" target="_blank">{{ page_author.name}}</a>
+	  {% else %}
+	    {{ page_author.name }}
+	  {% endif %}
+	{% endif %}
+	{% if page.tags != empty %} •
+	  {% for tag in page.tags %}
+	    <span class="tag">{{ tag }}</span>
+	  {% endfor %}
+	{% endif %}
+	 • {{ page.date | date: "%b %-d, %Y" }}
+	{% if page.meta %} • {{ page.meta }}{% endif %}
+	{% if page.en_url %} • <a href="{{ page.en_url }}">english version</a>{% endif %}
+	</p>
+  </header>
+
+  <iframe src="/viewerjs/#{{page.file}}" width="100%" height="600"></iframe>
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+
+  {% if page.lang == "en" %}
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = "{{ site.disqus_id }}";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  {% else %}
+	<div class="ds-thread" data-thread-key="{{ page.title | slugify }}" data-title="{{ page.title }}" data-url=""></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"{{ site.duoshuo_id }}"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+  {% endif %}
+  </div>
+
+  <div class="col-md-3">
+		<h2>Related Slides</h2>
+		{% for post in site.related_posts %}
+		  <li>
+			  <a class="" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+		  </li>
+		{% endfor %}
+
+    <div class="last-comments">
+        <!-- 多说最新评论 start -->
+        <div class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+        <!-- 多说最新评论 end -->
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:"{{ site.duoshuo_id }}"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        </script>
+        <!-- 多说公共JS代码 end -->
+    </div>
+  </div>
+</div>

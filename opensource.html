@@ -1,0 +1,19 @@
+---
+layout: default
+title:  "Slides"
+---
+
+<div class="row">
+{% for slide in site.slides %}
+  <div class="col-md-3">
+    <a target="_blank" href="{{ slide.url }}">
+	<div>
+	  <img src="{{ slide.cover }}" />
+	</div>
+	<div>
+	  {{ slide.title }}
+	</div>
+	</a>
+  </div>
+{% endfor %}
+</div>
