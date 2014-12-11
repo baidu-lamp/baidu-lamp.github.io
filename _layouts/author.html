@@ -5,16 +5,12 @@ layout: default
 <div class="row">
 <div class="post col-md-9">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-	{% assign post=page %}
-	{% include post_info.html %}
-  </header>
+  {% assign author = page %}
 
-  <article class="post-content">
-    {{ content }}
-  </article>
-
+  <ul>
+    <li>Author: {{ author.author }}</li>
+    <li>Website: {{ author.website}}</li>
+  </ul>
 
   {% if page.lang == "en" %}
   <div id="disqus_thread"></div>
@@ -42,7 +38,7 @@ layout: default
 		})();
 		</script>
   {% endif %}
-  </div>
+</div>
 
   <div class="col-md-3">
   		<h2>Related Posts</h2>

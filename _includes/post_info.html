@@ -1,0 +1,23 @@
+<p class="post-meta">
+{% for author in site.authors %}
+  {% if author.author == post.author %}
+    {% assign page_author = author %}
+    <img class="avatar" src="{{ author.avatar }}" />
+  {% endif %}
+{% endfor %}
+{% if post.author %}
+  {% if page_author and page_author.url %}
+    <a href="{{ page_author.url }}" target="_blank">{{ page_author.name}}</a>
+  {% else %}
+    {{ page_author.name }}
+  {% endif %}
+{% endif %}
+{% if post.tags != empty %} • 
+  {% for tag in post.tags %}
+    <span class="tag">{{ tag }}</span>
+  {% endfor %}
+{% endif %}
+ • {{ post.date | date: "%b %-d, %Y" }}
+{% if post.meta %} • {{ post.meta }}{% endif %}
+{% if post.en_url %} • <a href="{{ post.en_url }}">english version</a>{% endif %}
+</p>

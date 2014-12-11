@@ -29,3 +29,6 @@ collections:
   hhvm:
     output: true
     permalink: /hhvm/:path/
+  authors:
+    output: true
+    permalink: /author/:path/
