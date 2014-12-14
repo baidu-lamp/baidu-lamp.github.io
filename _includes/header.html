@@ -25,6 +25,7 @@
 		  </li>
 		  <li><a href='/opensource/'>开源</a></li>
 		  <li><a href='/slides/'>Slides</a></li>
+		  <li><a href='/join-us/'>加入我们</a></li>
 		  <li>
 			  <form action="http://zhannei.baidu.com/cse/search" method="GET" target="_blank" class="navbar-form navbar-left" role="search">
 				  <div class="form-group">
@@ -39,13 +40,17 @@
 </nav>
 </div>
 
-<div class="head-bg"
+<div class="head-bg {% if page.large_cover_img %} large-cover {% endif %} "
 {% if page and page.cover_img %}
    style="background-image: url({{page.cover_img}});background-color:#fff"
 {% endif %}
 >
 	<div class="wrapper site-title container">
-    	{{ site.title }}
+	    {% if page and page.cover_title %}
+		  {{ page.cover_title }}
+		{% else %}
+    	  {{ site.title }}
+		{% endif %}
 	</div>
 
 </div>

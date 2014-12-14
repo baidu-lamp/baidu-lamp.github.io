@@ -32,6 +32,28 @@
 	padding: 10px 15px;
 }
 
+
+.slides .slide-item {
+	margin-bottom: 20px;
+}
+
+body {
+	color: #333;
+}
+
+body #ds-reset .ds-avatar img, .ds-avatar img {
+	border-radius: 50%;
+}
+
+.page-content h1 {
+	font-size: 30px;
+	color: #333;
+}
+
+.page-content h2 {
+	font-size: 25px;
+}
+
 .site-title {
     font-size: 26px;
     line-height: 56px;
@@ -219,7 +241,7 @@
 }
 
 .post-title {
-    font-size: 42px;
+    font-size: 30px;
     letter-spacing: -1px;
     line-height: 1;
 
@@ -232,7 +254,7 @@
     margin-bottom: $spacing-unit;
 
     h2 {
-        font-size: 32px;
+        font-size: 25px;
 
         @include media-query($on-laptop) {
             font-size: 28px;
@@ -240,7 +262,7 @@
     }
 
     h3 {
-        font-size: 26px;
+        font-size: 23px;
 
         @include media-query($on-laptop) {
             font-size: 22px;

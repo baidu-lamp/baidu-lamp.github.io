@@ -32,8 +32,8 @@ layout: default
 	</div>
 	<div class="slides">
 		<h4>Slides</h4>
-		{% for slide in site.slides %}
-		  <div class="">
+		{% for slide in site.slides reversed sort_by:date %}
+		  <div class="slide-item">
 			<a target="_blank" href="{{ slide.url }}">
 			<div>
 			  <img src="{{ slide.cover }}" />

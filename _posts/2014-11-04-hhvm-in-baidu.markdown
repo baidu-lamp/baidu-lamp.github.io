@@ -6,17 +6,24 @@ author: huzhiguang
 tags: HHVM Baidu
 ---
 
-在这之前我们介绍了[我们为什么要迁移PHP到HHVM](http://lamp.baidu.com/2014/10/17/php-engine-investigation/)，那么本文将介绍HHVM在百度的应用情况以及我们遇到的问题及经验。
+在这之前我们介绍了[我们为什么要迁移PHP到HHVM](http://lamp.baidu.com/2014/10/17/php-engine-investigation/)，
+本文将介绍HHVM在百度的应用情况以及我们遇到的问题及经验。
+
 
 ##背景
 
-HHVM其前身是HipHop PHP，HipHop通过将php代码->cpp代码->二进制的这种转换来提升性能，Facebook应用了4年（2007-2011），但是由于开发、编译、调试、维护并不方便，所以2011年12月Facebook开始了HHVM的开发和调研。以下为其发展的路线：
+HHVM前身是HipHop PHP，HipHop通过将php代码->cpp代码->二进制的转换来提升性能，
+Facebook应用了4年（2007-2011），但是由于开发、编译、调试、维护不方便，
+2011年12月Facebook开始了HHVM的开发和调研。
 
-1. HipHop PHP: 将PHP代码翻译成C\++代码，然后编译成二进制运行，有很大的性能提升，不过开发成本比较大。
-1. hphpi: 为了解决编译太慢的问题，实现的一个PHP解释器用于提升开发效率，不过代码和hphpc很多都不一样，有很多的问题，可能导致线下的bug不能发现。
-1. HHVM：一个真正的虚拟机，目标是和Zend VM保持兼容。
+以下为其发展的路线：
 
-HHVM是HipHop Interpreter的改进版，方便调试使用，性能只有hphpc的一半，但是到了2012年11月，HHVM到了一个里程碑，它的性能接近了hphpc，随后HHVM2.2超过了hphpc，性能比HipHop多40%，HHVM2.3又比HHVM2.2提升20%的性能。
+1. HipHop PHP: 将PHP代码翻译成C\++代码，然后编译成二进制运行，有很大的性能提升，但开发成本比较大。
+1. hphpi：为了解决编译太慢的问题，其实现的PHP解释器用于提升开发效率，不过代码和hphpc很多都不一样，有很多问题，可能导致线下bug不能发现。
+1. HHVM：真正的虚拟机，目标是和Zend VM保持兼容。
+
+HHVM是HipHop Interpreter的改进版，方便调试使用，性能只有hphpc的一半，但是到了2012年11月，
+HHVM到了一个里程碑，它的性能接近了hphpc，随后HHVM2.2超过了hphpc，性能比HipHop多40%，HHVM2.3又比HHVM2.2提升20%的性能。
 
 具体HHVM的历史过程可以参见[他们的博客](https://www.facebook.com/notes/facebook-engineering/speeding-up-php-based-development-with-hhvm/10151170460698920)，还有[官方网站](http://hhvm.com/blog)
 

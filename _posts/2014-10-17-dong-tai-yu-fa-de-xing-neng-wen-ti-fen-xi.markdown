@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "动态语法的性能问题分析"
+title:  "HHVM动态语法的性能问题分析"
 date:   2014-10-17 00:15:04
 author: huzhiguang
 tags:
@@ -9,8 +9,6 @@ tags:
   - 性能问题
 ---
 
-
-> [百度Lamp技术博客](/) 原创作品，转载时请务必以超链接形式标明文章 [原始出处](http://lamp.baidu.com/2014/10/16/dong-tai-yu-fa-de-xing-neng-wen-ti-fen-xi/) 、作者信息和本声明。否则将追究法律责任。
 
 ##背景
 在某业务线使用HHVM的过程中，发现有一些机器的HHVM CPU使用率异常于其他机器，使用率高出了一倍多，上线和流量高时CPU高出更多，所以针对此问题定位和分析是哪里造成了此问题。
