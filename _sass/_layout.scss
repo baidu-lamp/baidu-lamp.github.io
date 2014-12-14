@@ -6,7 +6,12 @@
 
     // Positioning context for the mobile navigation icon
     position: relative;
-	background: url(/img/head-bg.jpg);
+	background: url(/img/head-bg.jpg) no-repeat;
+	background-size: cover;
+}
+
+.site-header nav {
+	margin-bottom: 0;
 }
 
 #navbar {

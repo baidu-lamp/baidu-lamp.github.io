@@ -39,10 +39,13 @@
 </nav>
 </div>
 
-<div class="head-bg">
-
-	<div class="container">
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+<div class="head-bg"
+{% if page and page.cover_img %}
+   style="background-image: url({{page.cover_img}});background-color:#fff"
+{% endif %}
+>
+	<div class="wrapper site-title container">
+    	{{ site.title }}
 	</div>
 
 </div>
