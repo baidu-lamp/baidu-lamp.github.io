@@ -19,7 +19,7 @@ large_cover_img: true
 
 ## 投递方式
 
-1. 发送简历至 xiaxuhong@baidu.com
+1. 发送简历至 <mailto:lamp-hr@baidu.com>
 1. 在[百度招聘网站应聘](http://talent.baidu.com/baidu/web/templet1000/index/corpwebPosition1000baidu!getPostListByConditionBaidu?positionType=0/1227/10002&brandCode=1&releaseTime=0&trademark=0&useForm=0&recruitType=2&lanType=&workPlaceCode=&keyWord=%25E8%25B4%25B4%25E5%2590%25A7&request_locale=zh_CN)上找到你想要的职位
 
 
