@@ -6,8 +6,8 @@ url: "http://lamp.baidu.com"
 twitter_username: reeze_xia
 github_username:  baidu-lamp
 
-pageinate: 8
-pageinate_path: "posts/page/:num"
+pageinate: 2
+pageinate_path: "articles/page:num/"
 
 duoshuo_id: baidu-lamp
 disqus_id: baidu-lamp
