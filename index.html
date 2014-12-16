@@ -23,14 +23,20 @@ layout: default
   </div>
 
   <div class="side col-md-3">
-    <div class="opensource">
-	  <h4>Opensource</h4>
-	  <ul>
-	  {% for project in site.data.projects %}
-	    <li>{{ project.name}}</li>
+    <div class="opensource projects side-item">
+	  <h4>
+	  Opensource</h4>
+	  <div class="row">
+	  {% for project in site.projects %}
+	    <div class="col-md-4"><img class="project-icon" src="{{project.icon}}" /></div>
+	    <div class="col-md-8">
+		    <div>{{project.title}}</div>
+			<div>Github: <a href="{{project.github}}">{{project.github}}</a></div>
+		</div>
 	  {% endfor %}
+	  </div>
 	</div>
-	<div class="slides">
+	<div class="slides side-item">
 		<h4>Slides</h4>
 		{% for slide in site.slides reversed sort_by:date %}
 		  <div class="slide-item">
@@ -42,7 +48,7 @@ layout: default
 		  </div>
 		{% endfor %}
 	</div>
-    <div class="last-comments">
+    <div class="last-comments side-item">
         <!-- 多说最新评论 start -->
         <div class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
         <!-- 多说最新评论 end -->

@@ -1,19 +1,19 @@
 ---
 layout: default
 title:  "Slides"
+cover_title: "Opensource"
 ---
 
 <div class="row">
-{% for slide in site.slides %}
-  <div class="col-md-3">
-    <a target="_blank" href="{{ slide.url }}">
-	<div>
-	  <img src="{{ slide.cover }}" />
-	</div>
-	<div>
-	  {{ slide.title }}
-	</div>
-	</a>
-  </div>
-{% endfor %}
+	  {% for project in site.projects %}
+	    <div class="col-md-3"><img class="project-icon" src="{{project.icon}}" /></div>
+	    <div class="col-md-8">
+		    <div><h2>{{project.title}}<h2></div>
+			<div>Github: <a href="{{project.github}}">{{project.github}}</a></div>
+			<div>问题反馈: <a href="{{project.issue}}">{{project.issue}}</a></div>
+			<hr />
+			<div class="project desc">说明: {{project.desc}}</div>
+		</div>
+	  {% endfor %}
+
 </div>

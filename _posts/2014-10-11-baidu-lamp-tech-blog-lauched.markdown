@@ -17,4 +17,4 @@ Our Github address is <http://github.com/baidu-lamp>
 
 Hold on tight.
 
-![](/images/2014/10/Unknown-1.gif)
+![](/content/images/2014/10/Unknown-1.gif)

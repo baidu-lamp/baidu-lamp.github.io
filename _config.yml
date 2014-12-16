@@ -23,6 +23,9 @@ post_defaults:
   page_id: post
 
 collections:
+  projects:
+    output: true
+    permalink: /opensource/:path/
   slides:
     output: true
     permalink: /slides/:path/
