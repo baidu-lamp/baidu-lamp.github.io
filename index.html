@@ -9,7 +9,6 @@ layout: default
 		{% for post in site.posts %}
 		  {% if post.lang != "en" %}
 		  <li>
-
 			<h2>
 			  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 			</h2>
@@ -56,6 +55,7 @@ layout: default
 		{% endfor %}
 	</div>
     <div class="last-comments side-item">
+		<h4><span class="glyphicon glyphicon-heart"></span> 所有留言</h4>
         <!-- 多说最新评论 start -->
         <div class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
         <!-- 多说最新评论 end -->

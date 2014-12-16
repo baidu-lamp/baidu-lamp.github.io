@@ -49,6 +49,10 @@
 .post {
 }
 
+.pagination {
+	text-align: center;
+}
+
 /* page content styles */
 .post-content pre {
 	border: 1px solid #bcbcbc;
@@ -109,6 +113,11 @@
 .side-item h4 {
     padding-bottom: 4px;
 	border-bottom: 1px solid #e3e3e3;
+}
+
+.last-comments.side-item h4{
+	border: 0;
+	margin-bottom: 0;
 }
 
 .project-icon {
