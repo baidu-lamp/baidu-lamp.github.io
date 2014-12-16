@@ -82,6 +82,10 @@
 	padding: 10px;
 }
 
+.post_except {
+	text-align: justify;
+}
+
 
 /* end style */
 
@@ -117,7 +121,7 @@ hr {
 }
 
 body {
-	color: #333;
+	color: #555;
 }
 
 body #ds-reset .ds-avatar img, .ds-avatar img {
@@ -131,6 +135,12 @@ body #ds-reset .ds-avatar img, .ds-avatar img {
 
 .page-content h2 {
 	font-size: 25px;
+}
+
+.page-content h2, .page-content h3, .page-content h4, .page-content h5, .page-content h6 {
+	font-weight: bold;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 7px;
 }
 
 .site-title {
