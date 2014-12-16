@@ -19,5 +19,5 @@
 {% endif %}
  • {{ post.date | date: "%b %-d, %Y" }}
 {% if post.meta %} • {{ post.meta }}{% endif %}
-{% if post.en_url %} • <a href="{{ post.en_url }}">english version</a>{% endif %}
+{% if post.en_url %} • <span class="english-label label label-primary"><a href="{{ post.en_url }}">english version</a></span>{% endif %}
 </p>
