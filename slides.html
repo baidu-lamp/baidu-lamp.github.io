@@ -5,7 +5,7 @@ title:  "Slides"
 
 <div class="row">
 {% for slide in site.slides reversed sort_by:date %}
-  <div class="col-md-3">
+  <div class="col-md-3 slide-item">
     <a target="_blank" href="{{ slide.url }}">
 	<div>
 	  <img style="position:relative" src="{{ slide.cover }}" />
