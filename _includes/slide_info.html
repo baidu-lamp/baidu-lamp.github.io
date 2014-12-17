@@ -22,5 +22,15 @@
 {% if slide.conf %}
   | 会议: {{ slide.conf }}
 {% endif %}
+
+•
+
+{% if slide.file %}
+  {% assign download_link = slide.file %}
+{% else %}
+  {% assign download_link=slide | prepend "http://wenku.baidu.com/view/" | append ".html" %}
+{% endif %}
+<a target="_blank" href="{{ download_link }}"> <span class="glyphicon glyphicon-save"></span> 下载 </a>
+
 {% if slide.en_url %} • <span class="english-label label label-primary"><a href="{{ post.en_url }}">english version</a></span>{% endif %}
 </p>
