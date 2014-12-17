@@ -4,15 +4,15 @@
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li>友情链接</li>
+          <li><a href="http://fex.baidu.com">百度 FEX</a></li>
         </ul>
       </div>
 
       <div class="footer-col  footer-col-2">
         <ul class="social-media-list">
+		  <li>
           {% if site.github_username %}
-          <li>
             <a href="https://github.com/{{ site.github_username }}">
               <span class="icon  icon--github">
                 <svg viewBox="0 0 16 16">
@@ -21,11 +21,12 @@
               </span>
 
               <span class="username">{{ site.github_username }}</span>
-            </a>
           </li>
+          <li>
   <p class="rss-subscribe"><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS订阅</a></p>
         <p class="text">{{ site.description }}</p>
           {% endif %}
+		  </li>
         </ul>
       </div>
       <div class="footer-col  footer-col-3">
