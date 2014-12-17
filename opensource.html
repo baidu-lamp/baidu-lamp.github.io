@@ -4,8 +4,8 @@ title:  "Slides"
 cover_title: "Opensource"
 ---
 
-<div class="row">
-	  {% for project in site.projects %}
+	{% for project in site.projects %}
+      <div class="row project-item">
 	    <div class="col-md-3"><img class="project-icon" src="{{project.icon}}" /></div>
 	    <div class="col-md-8">
 		    <div><h2>{{project.title}}<h2></div>
@@ -14,6 +14,14 @@ cover_title: "Opensource"
 			<hr />
 			<div class="project desc">说明: {{project.desc}}</div>
 		</div>
-	  {% endfor %}
+      </div>
+    {% endfor %}
 
+<div class="row">
+	    <div class="col-md-3"><img class="project-icon" src="/img/baking.jpg" /></div>
+	    <div class="col-md-8">
+		    <div><h2>更多项目准备中...<h2></div>
+			<hr />
+			<div class="project desc">Coming Soon...</div>
+		</div>
 </div>
