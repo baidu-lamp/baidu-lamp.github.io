@@ -6,7 +6,7 @@ author: huzhiguang
 tags: HHVM Baidu
 ---
 
-在这之前我们介绍了[我们为什么要迁移PHP到HHVM](http://lamp.baidu.com/2014/10/17/php-engine-investigation/)，
+在这之前我们介绍了[我们为什么要迁移PHP到HHVM](/2014/10/16/php-engine-investigation/)，
 本文将介绍HHVM在百度的应用情况以及我们遇到的问题及经验。
 
 
