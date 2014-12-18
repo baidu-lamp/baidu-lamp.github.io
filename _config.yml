@@ -1,5 +1,7 @@
 title: Baidu Engineering
 name: 百度LAMP技术
+keywords: 百度LAMP技术,PHP,HHVM,NGINX,性能优化
+description: 百度LAMP技术
 email: reeze.xia@gmail.com
 baseurl: ""
 permalink: pretty
