@@ -39,7 +39,7 @@ Hhvm是单进程多线程模型，对于稳定性要求就极高，如果其中�
 
 监控接口：
 
-http://ipaddress:adminport/check-health
+`http://ipaddress:adminport/check-health`
 
 ![Alt text](hhvm-in-action/imgs/check-health.png)
  
@@ -60,7 +60,7 @@ Hhvm 采用2种内存分配库(tcmalloc和jemalloc)，目前采用的是jemalloc
 hhvm可以用jemalloc的profile进行diff的差异比较生成图表来看内存在哪块区域里面进行了泄露；
 
 首先安装jemalloc的时候需要添加编译选项：
-./configure --enable-prof
+`./configure --enable-prof`
 
 添加prof选项后，然后安装jemalloc，然后我们就可以利用jemalloc的prof来对于内存进行分析了（编译好jemalloc后，我们可以将支持prof功能的jemalloc动态库copy到hhvm的cmake_prefix_path的位置，替换原来的库）；
 
@@ -69,15 +69,15 @@ export MALLOC_CONF=prof:true
 
 然后我们运行hhvm，配置好管理端口（8084管理端口）
 
-`
+<code>
 AdminServer {
     Port = 8084
 }
-`
+</code>
 
 然后我们运行下面的命令：
 
-http://127.0.0.1:8084/jemalloc-prof-dump?file=prof1.txt
+`http://127.0.0.1:8084/jemalloc-prof-dump?file=prof1.txt`
 
 这时会有一个文件（prof1.txt）生成到我们的hhvm运行的目录下面;
 
@@ -85,7 +85,7 @@ http://127.0.0.1:8084/jemalloc-prof-dump?file=prof1.txt
 
 然后我们针对可能出现内存泄露的url进行压力测试，压测一段时间之后，我们再次运行dump命令（注：这里需要一个新的名字prof2.txt）
 
-http://127.0.0.1:8084/jemalloc-prof-dump?file=prof2.txt
+`http://127.0.0.1:8084/jemalloc-prof-dump?file=prof2.txt`
 
 然后比较2个文件的差异性，生成图表：
 
@@ -93,15 +93,15 @@ pprof是按照jemalloc的时候生成的二进制文件；
 
 （1）生成diff文件
 
-jemalloc/bin/pprof --text --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.txt
+`jemalloc/bin/pprof --text --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.txt`
 
 （2）生成diff的dot
 
-Jemalloc/bin/pprof --dot --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.dot
+`Jemalloc/bin/pprof --dot --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.dot`
 
 （3）通过graphviz的dot对于diff文件生成png文件(graphviz 制图工具需要安装)
 
-graphviz/bin/dot -Tpng diffprof.dot > diffprof.png
+`graphviz/bin/dot -Tpng diffprof.dot > diffprof.png`
 
 这样生成好了内存的diff 文件我们可以进行比对;
 
@@ -118,7 +118,7 @@ Valgrand 是一款很好的内存分析工具，但是由于打印的信息过�
 
 （2）	扫描内存
 
-valgrind --leak-check=full  --tool=memcheck --log-file=leak.log hhvm -m server -c config.hdf
+`valgrind --leak-check=full  --tool=memcheck --log-file=leak.log hhvm -m server -c config.hdf`
 
 通过valgrind启动hhvm ，然后访问我们可能会泄露的case，然后ctrl+c终端进程信号，会dump一些未释放的内存会存在leak.log中，如果我们是对于扩展的内存扫描，就可以直接grep我们扩展的一些特定内存即可；
 
