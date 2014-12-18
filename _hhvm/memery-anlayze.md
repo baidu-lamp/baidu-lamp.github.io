@@ -69,11 +69,10 @@ export MALLOC_CONF=prof:true
 
 然后我们运行hhvm，配置好管理端口（8084管理端口）
 
-<code>
-AdminServer {
-    Port = 8084
-}
-</code>
+	AdminServer {
+	    Port = 8084
+	}
+
 
 然后我们运行下面的命令：
 
@@ -93,7 +92,7 @@ pprof是按照jemalloc的时候生成的二进制文件；
 
 （1）生成diff文件
 
-`jemalloc/bin/pprof --text --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.txt`
+>jemalloc/bin/pprof --text --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.txt
 
 （2）生成diff的dot
 
