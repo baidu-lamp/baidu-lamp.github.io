@@ -39,7 +39,8 @@ Hhvm是单进程多线程模型，对于稳定性要求就极高，如果其中�
 
 监控接口：
 
-http://<ipaddress>:adminport/check-health
+http://ipaddress:adminport/check-health
+![Alt text](/hhvm-in-action/imgs/check-health.png)
  
 其中load是worker的活动数量，如果load满了（ThreadCount），将会进入到队列中(queued)，处理完毕后会都恢复；
 
@@ -67,9 +68,11 @@ export MALLOC_CONF=prof:true
 
 然后我们运行hhvm，配置好管理端口（8084管理端口）
 
+`
 AdminServer {
     Port = 8084
 }
+`
 
 然后我们运行下面的命令：
 
@@ -102,6 +105,8 @@ graphviz/bin/dot -Tpng diffprof.dot > diffprof.png
 这样生成好了内存的diff 文件我们可以进行比对;
 
 然后会生成如下图片：
+ 
+![Alt text](/hhvm-in-action/imgs/memery-leak.png)
  
 这样我们可以根据图中的diff泄露点，然后找到我们需要解决的问题，这样对于庞大的hhvm来说就比valgrind好用多了；
 
