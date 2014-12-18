@@ -1,6 +1,6 @@
 ##	引言
 
-内存泄露对于c和c++来说比较普遍，而旧的php引擎来说由于是多进程的模式，而且会定期清理一部分进程，所以即使有内存泄露也不是很明显或者关注不多;
+<p>内存泄露对于c和c++来说比较普遍，而旧的php引擎来说由于是多进程的模式，而且会定期清理一部分进程，所以即使有内存泄露也不是很明显或者关注不多;</p>
 
 Hhvm是单进程多线程模型，对于稳定性要求就极高，如果其中出现了内存泄露，那么会很明显，而且目前hhvm使用人群还不多，对于分析hhvm内存的方法还了解不多，我下面就介绍一些hhvm会出现的内存泄露情况和一些分析的方法。
 
@@ -40,7 +40,8 @@ Hhvm是单进程多线程模型，对于稳定性要求就极高，如果其中�
 监控接口：
 
 http://ipaddress:adminport/check-health
-![Alt text](/hhvm-in-action/imgs/check-health.png)
+
+![Alt text](hhvm-in-action/imgs/check-health.png)
  
 其中load是worker的活动数量，如果load满了（ThreadCount），将会进入到队列中(queued)，处理完毕后会都恢复；
 
@@ -106,7 +107,7 @@ graphviz/bin/dot -Tpng diffprof.dot > diffprof.png
 
 然后会生成如下图片：
  
-![Alt text](/hhvm-in-action/imgs/memery-leak.png)
+![Alt text](hhvm-in-action/imgs/memery-leak.png)
  
 这样我们可以根据图中的diff泄露点，然后找到我们需要解决的问题，这样对于庞大的hhvm来说就比valgrind好用多了；
 
