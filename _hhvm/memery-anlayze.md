@@ -60,6 +60,7 @@ Hhvm 采用2种内存分配库(tcmalloc和jemalloc)，目前采用的是jemalloc
 hhvm可以用jemalloc的profile进行diff的差异比较生成图表来看内存在哪块区域里面进行了泄露；
 
 首先安装jemalloc的时候需要添加编译选项：
+
 `./configure --enable-prof`
 
 添加prof选项后，然后安装jemalloc，然后我们就可以利用jemalloc的prof来对于内存进行分析了（编译好jemalloc后，我们可以将支持prof功能的jemalloc动态库copy到hhvm的cmake_prefix_path的位置，替换原来的库）；
@@ -92,15 +93,15 @@ pprof是按照jemalloc的时候生成的二进制文件；
 
 （1）生成diff文件
 
->jemalloc/bin/pprof --text --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.txt
+	jemalloc/bin/pprof --text --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.txt
 
 （2）生成diff的dot
 
-`Jemalloc/bin/pprof --dot --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.dot`
+	Jemalloc/bin/pprof --dot --base prof1.txt /home/work/data/test/hhvm/output/prefix/bin/hhvm prof2.txt >diffprof.dot
 
 （3）通过graphviz的dot对于diff文件生成png文件(graphviz 制图工具需要安装)
 
-`graphviz/bin/dot -Tpng diffprof.dot > diffprof.png`
+	graphviz/bin/dot -Tpng diffprof.dot > diffprof.png
 
 这样生成好了内存的diff 文件我们可以进行比对;
 
@@ -117,7 +118,7 @@ Valgrand 是一款很好的内存分析工具，但是由于打印的信息过�
 
 （2）	扫描内存
 
-`valgrind --leak-check=full  --tool=memcheck --log-file=leak.log hhvm -m server -c config.hdf`
+	valgrind --leak-check=full  --tool=memcheck --log-file=leak.log hhvm -m server -c config.hdf
 
 通过valgrind启动hhvm ，然后访问我们可能会泄露的case，然后ctrl+c终端进程信号，会dump一些未释放的内存会存在leak.log中，如果我们是对于扩展的内存扫描，就可以直接grep我们扩展的一些特定内存即可；
 
