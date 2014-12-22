@@ -6,10 +6,10 @@
   {% endif %}
 {% endfor %}
 {% if post.author %}
-  {% if page_author and page_author.url %}
+  {% if page_author and page_author.website %}
     <a href="{{ page_author.website }}" target="_blank">{{ page_author.name}}</a>
   {% else %}
-    {{ page_author.name }}
+    <a href="{{ page_author.url }}" target="_blank">{{ page_author.name}}</a>
   {% endif %}
 {% endif %}
 {% if post.tags != empty %} • 

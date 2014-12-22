@@ -5,12 +5,22 @@ layout: default
 <div class="row">
 <div class="post col-md-9">
 
-  {% assign author = page %}
+{% for author in site.authors %}
+  {% if author.author == page.author %}
+    {% assign page_author = author %}
+    <img class="avatar" src="{{ author.avatar }}" />
+  {% endif %}
+{% endfor %}
+{% if page.author %}
+  {% if page_author and page_author.website %}
+    <a href="{{ page_author.website }}" target="_blank">{{ page_author.name}}</a>
+  {% else %}
+    <a href="{{ page_author.url }}" target="_blank">{{ page_author.name}}</a>
+  {% endif %}
+{% endif %}
+  <hr />
 
-  <ul>
-    <li>Author: {{ author.author }}</li>
-    <li>Website: {{ author.website}}</li>
-  </ul>
+  {{ content }}
 
   {% if page.lang == "en" %}
   <div id="disqus_thread"></div>
@@ -41,15 +51,9 @@ layout: default
 </div>
 
   <div class="col-md-3">
-  		<h2>Related Posts</h2>
-		{% for post in site.related_posts %}
-		  <li>
-			  <a class="" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-		  </li>
-		{% endfor %}
 
-    <div class="last-comments">
+    <div class="last-comments side-item">
+		<h4><span class="glyphicon glyphicon-heart"></span> 所有留言</h4>
         <!-- 多说最新评论 start -->
         <div class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
         <!-- 多说最新评论 end -->
