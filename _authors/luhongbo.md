@@ -1,7 +1,7 @@
 ---
 layout: author
 author: luhongbo
-name: 卢洪波
+name: 卢红波
 intro: Baidu Tieba
 avatar: /img/avatar/luhongbo.png
 ---
@@ -18,5 +18,5 @@ avatar: /img/avatar/luhongbo.png
 ### 联系方式
 
 - 微信：nkarthas
-- 微博：卢洪波
+- 微博：卢红波
 - 邮箱：luhongbo@baidu.com
