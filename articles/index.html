@@ -49,7 +49,7 @@ layout: default
 		{% for tag in site.tags %}
 		{% assign t = tag | first %}
 		{% assign posts = tag | last %}
-		  <li>{{t | downcase | replace:" ","-" }} has {{ posts | size }} posts</li>
+		  <li><span class="tag">{{t | downcase | replace:" ","-" }}</span> has {{ posts | size }} posts</li>
 		{% endfor %}
 		</ul>
 	</div>
