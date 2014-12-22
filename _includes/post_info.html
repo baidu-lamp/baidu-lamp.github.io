@@ -17,7 +17,7 @@
     <span class="tag">{{ tag }}</span>
   {% endfor %}
 {% endif %}
- • {{ post.date | date: "%b %-d, %Y" }}
+ • {{ post.date | date: "%Y-%m-%d" }}
 {% if post.meta %} • {{ post.meta }}{% endif %}
 {% if post.en_url %} • <span class="english-label label label-primary"><a href="{{ post.en_url }}">english version</a></span>{% endif %}
 </p>
