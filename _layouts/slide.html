@@ -2,10 +2,16 @@
 layout: default
 ---
 
-<div class="row">
-<div class="post">
+<script type="text/javascript">
+	window.onload = function() {
+		window.location = "#slide-start";
+	};
+</script>
 
-  <header class="post-header">
+<div class="row">
+<div class="slide">
+  <a name="slide-start"></a>
+  <header class="">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
 	{% assign slide=page %}
