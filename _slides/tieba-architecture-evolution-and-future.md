@@ -7,6 +7,5 @@ conf: 内部培训
 cover: /content/slides/tieba-architecture-evolution-and-future.png
 file: /content/slides/tieba-architecture-evolution-and-future.pdf
 wenku_docid: e401d0fddaef5ef7bb0d3c65
-download_only: true
 tags: 贴吧 架构
 ---
