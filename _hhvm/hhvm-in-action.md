@@ -25,7 +25,7 @@ cover_title: "HHVM应用实践"
 	1. 单元测试
 1. 问题定位
 1. 性能分析及优化
-	1. 内存分析
+	1. [内存泄露分析](http://lamp.baidu.com/hhvm/hhvm-in-action/memory-leaks-analyze/ '内存泄露分析')
 	1. 性能分析
 
 ## 原理篇
