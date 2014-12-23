@@ -6,6 +6,20 @@ layout: default
 	window.onload = function() {
 		window.location = "#slide-start";
 	};
+
+	window.setTimeout(function() {
+		var iframe = document.getElementById('slide-frame');
+		var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+		if (iframeDoc.readyState  != 'complete') {
+			if (jQuery) {
+				jQuery("#loading-toolong-layer").fadeIn();
+				window.setTimeout(function() {
+					jQuery("#loading-toolong-layer").fadeOut();
+				}, 4000);
+			}	
+		}
+	}, 6000);
 </script>
 
 <div class="row">
@@ -25,7 +39,8 @@ layout: default
 
   <article class="post-content">
 
-  <iframe src="/pdfjs/viewer.html?file={{page.file}}" width="100%" height="600"></iframe>
+  <div id="loading-toolong-layer" style="display: none; padding: 10px;" class="alert-warning">看起来加载有点慢，请刷新试试...</div>
+  <iframe id="slide-frame" src="/pdfjs/viewer.html?file={{page.file}}" width="100%" height="600"></iframe>
   <!--
   <object height="500" align="middle" width="100%" id="reader" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
     <param value="window" name="wmode">
