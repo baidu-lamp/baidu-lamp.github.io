@@ -20,7 +20,12 @@
  • {{ slide.date | date: "%Y-%m-%d" }}
 {% if slide.meta %} • {{ slide.meta }}{% endif %}
 {% if slide.conf %}
-  | 会议: {{ slide.conf }}
+  | 会议: 
+  {% if slide.conf_url %} 
+    <a class="conf-link" href="{{ slide.conf_url }}">{{ slide.conf }}</a>
+  {% else %}
+    {{ slide.conf }}
+  {% endif %}
 {% endif %}
 
 •
