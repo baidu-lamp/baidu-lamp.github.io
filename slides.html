@@ -3,14 +3,14 @@ layout: default
 title:  "Slides"
 ---
 
-<div class="row">
+<div class="row slide-list">
 {% for slide in site.slides reversed sort_by:date %}
   <div class="col-md-3 slide-item">
     <a target="_blank" href="{{ slide.url }}">
 	<div>
 	  <img style="position:relative" src="{{ slide.cover }}" />
 	</div>
-	<div>
+	<div class="slide-title">
 	  {{ slide.title }}
 	</div>
 	</a>
