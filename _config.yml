@@ -35,6 +35,9 @@ collections:
   hhvm:
     output: true
     permalink: /hhvm/:path/
+  php:
+    output: true
+    permalink: /php/:path/
   authors:
     output: true
     permalink: /author/:path/
