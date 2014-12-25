@@ -45,7 +45,7 @@ tags: PHP 性能分析 HHVM Zend引擎
 用php官方提供的测试脚本：
 
 * bench.php : <https://github.com/php/php-src/blob/master/Zend/bench.php>
-* micro_bench.php : <https://github.com/php/php-src/blob/master/Zend/micro_bench.php>
+* micro\_bench.php : <https://github.com/php/php-src/blob/master/Zend/micro_bench.php>
 * 第三方提供的测试脚本bench_third.php : <http://www.php-benchmark-script.com/>
 
 测试结果如下：
