@@ -8,29 +8,63 @@ tags: HHVM Baidu
 
 ## 1.	结论
 
-引擎+模式	吞吐
+<table>
+<thead>
+<tr>
+  <th>引擎+模式	</th>
+  <th>吞吐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>HHVM非repo模式</td>
+  <td>834</td>
+</tr>
+<tr>
+  <td>HHVMrepo模式</td>
+  <td>1093</td>
+</tr>
+<tr>
+  <td>Php7 opcache.revalidate_freq 设置0</td>
+  <td>800</td>
+</tr>
+<tr>
+  <td>Php7 opcache.revalidate_freq设置60</td>
+  <td>844</td>
+</tr>
+</tbody>
+</table>
 
-Hhvm非repo模式	1049.42
+之前测试过一次混合部署的数据，但是那样不是很准确，会受到mysql等干扰（穷啊，没有同机房、同交换机下的其他测试机），所以采用了cpu隔离的方式将hhvm、mysql和httpload分别进行隔离（绑定cpu用taskset）：
 
-Hhvm repo 模式	1533.08
+Php和hhvm绑定cpu 在0-6核（7个core,php绑定100个进程，hhvm绑定一个进程）
 
-Php7 opcache.revalidate_freq 设置0	1157
+Mysql绑定cpu在8-10(3个core)
 
-Php7 opcache.revalidate_freq设置60	1185
+http绑定cpu在11（1个core）
 
-Cpu  idle 全部压倒了0，但是由于测试机器有限（无法实现同交换机同机房），所以压力工具和数据库都在一台机器上，可以参见下面详细cpu图中hhvm的mysql cpu消耗更多一些，所以如果不是同机器的话，测试应该会更准确；
-Php7 的opcache.revalidate_freq 0和60差距不大，我们就取最优的来对比吧(60)：
+测试这次都采用100个 work(进程或线程)，并且把7个core都给打满，这样最终比较吞吐还是比较准确的，其他无干扰，数据如下:
 
-Php7 vs hhvm norepo ,php7高于 hhvm *12%*
+Php7（60） vs hhvm norepo ,php7高于hhvm 是 **1%**
 
-Php7 vs hhvm repo ,hhvm 高于php7 *30%*
+Php7（0） vs hhvm norepo , hhvm 高于php 7 是 **4%**
 
-如果repo模式在非同机hhvm应该会更高，这是个相对的测试，测试的wordpress，但是repo模式我们还未在线上使用，因为需要预先线下编译，和之前PHP的流程上有些冲突，需要一套预案，目前用途广的还是非repo模式（facebook默认是repo模式）。
-Repo模式比非repo模式在wp下高接近50%的，这个目前没有prof后期我会进行prof分析出结果继续跟进。
+Php7(60) vs hhvm repo, hhvm 高于php7 是 **30%**
+
+Php7(0) vs hhvm repo ,hhvm 高于php 7 是 **37%**
+
+Hhvm norepo vs hhvm repo ,hhvm repo高于hhvm norepo 是 **31%**
+
+work除了100外也设置为24测试了，吞吐hhvm和php7都会适当提升10%左右，但是相对比例都跟如上接近。
+
+综上，php7 跟hhvm norepo模式性能差不多，Php7 的opcache.revalidate_freq 0和60差距不大，我们就取最优的来对比吧(60)，hhvm repo模式比php7高**30%**，这是个相对的测试，测试的wordpress，但是repo模式我们还未在线上使用，因为需要预先线下编译，和之前PHP的流程上有些冲突，需要一套预案，目前用途广的还是非repo模式（facebook默认是repo模式）。
+
+Repo模式比非repo模式在wp下高接近31%的，这个目前没有prof后期我会进行prof分析出结果继续跟进。
 
 HHVM 版本是3.0.1 release
 
 Php7是2014.12.18 dev
+
 
 ## 2.	测试环境
 
@@ -48,21 +82,25 @@ Cpu:12 cores  Intel(R) Xeon(R) CPU E5-2620 0 @ 2.00GHz
 
 ## 3.	Hhvm 
 
-ThreadCount:128
+ThreadCount:100
 
 预热并发30，3000次
 
 ### 3.1.	Hhvm 非repo 模式
+
 ![](/img/phpng_vs_hhvm/hhvm1.jpg)
+
 ![](/img/phpng_vs_hhvm/hhvm2.jpg)
 
-1049.42
+834
 
 ### 3.2.	Hhvm repo 模式
+
 ![](/img/phpng_vs_hhvm/hhvm3.jpg)
+
 ![](/img/phpng_vs_hhvm/hhvm4.jpg)
 
-1533.08
+1093
 
 ## 4.	Phpng
 
@@ -95,14 +133,17 @@ ThreadCount:128
 		extension=mysql.so
 
 ### 4.1.	Phpng opcache.revalidate_freq 0
+
 ![](/img/phpng_vs_hhvm/php1.jpg)
+
 ![](/img/phpng_vs_hhvm/php2.jpg)
 
-1157
+800
 
 ### 4.2.	Phpng opcache.revalidate_freq 60
 
 ![](/img/phpng_vs_hhvm/php3.jpg)
+
 ![](/img/phpng_vs_hhvm/php4.jpg)
 
-1185
+844
