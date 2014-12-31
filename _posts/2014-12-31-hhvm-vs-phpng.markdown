@@ -55,23 +55,23 @@ http绑定cpu在11（1个core）
 <tbody>
 <tr>
   <td>Php7（60） vs hhvm norepo </td>
-  <td>php7高于hhvm 是 **1%**</td>
+  <td>php7高于hhvm 是 <b>1%</b></td>
 </tr>
 <tr>
   <td>Php7（0） vs hhvm norepo </td>
-  <td>hhvm 高于php 7 是 **4%**</td>
+  <td>hhvm 高于php 7 是 <b>4%</b></td>
 </tr>
 <tr>
   <td>Php7(60) vs hhvm repo</td>
-  <td>hhvm 高于php7 是 **30%**</td>
+  <td>hhvm 高于php7 是 <b>30%</b></td>
 </tr>
 <tr>
   <td>Php7(0) vs hhvm repo</td>
-  <td>hhvm 高于php 7 是 **37%**</td>
+  <td>hhvm 高于php 7 是 <b>37%</b></td>
 </tr>
 <tr>
   <td>Hhvm norepo vs hhvm repo </td>
-  <td>hhvm repo高于hhvm norepo 是 **31%**</td>
+  <td>hhvm repo高于hhvm norepo 是 <b>31%</b></td>
 </tr>
 </tbody>
 </table>
