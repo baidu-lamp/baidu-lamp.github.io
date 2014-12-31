@@ -13,9 +13,9 @@ Php7 opcache.revalidate_freq设置60	1185
 Cpu  idle 全部压倒了0，但是由于测试机器有限（无法实现同交换机同机房），所以压力工具和数据库都在一台机器上，可以参见下面详细cpu图中hhvm的mysql cpu消耗更多一些，所以如果不是同机器的话，测试应该会更准确；
 Php7 的opcache.revalidate_freq 0和60差距不大，我们就取最优的来对比吧(60)：
 
-Php7 vs hhvm norepo ,php7高于 hhvm 12%
+Php7 vs hhvm norepo ,php7高于 hhvm *12%*
 
-Php7 vs hhvm repo ,hhvm 高于php7 30%
+Php7 vs hhvm repo ,hhvm 高于php7 *30%*
 
 如果repo模式在非同机hhvm应该会更高，这是个相对的测试，测试的wordpress，但是repo模式我们还未在线上使用，因为需要预先线下编译，和之前PHP的流程上有些冲突，需要一套预案，目前用途广的还是非repo模式（facebook默认是repo模式）。
 Repo模式比非repo模式在wp下高接近50%的，这个目前没有prof后期我会进行prof分析出结果继续跟进。
