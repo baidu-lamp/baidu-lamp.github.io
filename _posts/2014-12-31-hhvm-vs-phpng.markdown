@@ -45,16 +45,36 @@ http绑定cpu在11（1个core）
 
 测试这次都采用100个 work(进程或线程)，并且把7个core都给打满，这样最终比较吞吐还是比较准确的，其他无干扰，数据如下:
 
-Php7（60） vs hhvm norepo ,php7高于hhvm 是 **1%**
-
-Php7（0） vs hhvm norepo , hhvm 高于php 7 是 **4%**
-
-Php7(60) vs hhvm repo, hhvm 高于php7 是 **30%**
-
-Php7(0) vs hhvm repo ,hhvm 高于php 7 是 **37%**
-
-Hhvm norepo vs hhvm repo ,hhvm repo高于hhvm norepo 是 **31%**
-
+<table>
+<thead>
+<tr>
+  <th>引擎+模式	</th>
+  <th>比例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Php7（60） vs hhvm norepo </td>
+  <td>php7高于hhvm 是 **1%**</td>
+</tr>
+<tr>
+  <td>Php7（0） vs hhvm norepo </td>
+  <td>hhvm 高于php 7 是 **4%**</td>
+</tr>
+<tr>
+  <td>Php7(60) vs hhvm repo</td>
+  <td>hhvm 高于php7 是 **30%**</td>
+</tr>
+<tr>
+  <td>Php7(0) vs hhvm repo</td>
+  <td>hhvm 高于php 7 是 **37%**</td>
+</tr>
+<tr>
+  <td>Hhvm norepo vs hhvm repo </td>
+  <td>hhvm repo高于hhvm norepo 是 **31%**</td>
+</tr>
+</tbody>
+</table>
 work除了100外也设置为24测试了，吞吐hhvm和php7都会适当提升10%左右，但是相对比例都跟如上接近。
 
 综上，php7 跟hhvm norepo模式性能差不多，Php7 的opcache.revalidate_freq 0和60差距不大，我们就取最优的来对比吧(60)，hhvm repo模式比php7高**30%**，这是个相对的测试，测试的wordpress，但是repo模式我们还未在线上使用，因为需要预先线下编译，和之前PHP的流程上有些冲突，需要一套预案，目前用途广的还是非repo模式（facebook默认是repo模式）。
