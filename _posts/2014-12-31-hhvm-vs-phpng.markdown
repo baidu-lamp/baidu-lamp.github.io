@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "HHVM vs PHP7"
+date:   2014-12-31 09:00:00
+author: huzhiguang
+tags: HHVM Baidu
+---
+
 ## 1.	结论
 
 引擎+模式	吞吐
