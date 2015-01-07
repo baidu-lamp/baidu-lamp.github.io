@@ -79,13 +79,13 @@ Nginx 的请求源源不断，但是hhvm的acess日志却不进行接受任何�
 
 我们可以通过gdb attach，strace，和系统abort查看core栈，由于hhvm是多线程模式，所以我们需要找到死锁的具体线程，抓主进程是没有用的，下面用一种方式很实用，就是查看线程的cpu使用率来进行判断：
 
- ps -mp <PID> -o THREAD,tid,time|sort
+    ps -mp <PID> -o THREAD,tid,time|sort
 
 通过排序我们可以查看到cpu使用率最高的线程，然后我们查看到tid后，我们通过如下3种方式进行跟踪
 
   1. attach
   
-      gdb attach tid
+        gdb attach tid
   
   通过gdb命令直接attach到怀疑死锁的线程让，然后通过bt命令查看具体在哪个位置死锁了；
   
@@ -95,13 +95,13 @@ Nginx 的请求源源不断，但是hhvm的acess日志却不进行接受任何�
 
   1.	strace
   
-      strace –p tid –o trace.log
+        strace –p tid –o trace.log
   
   通过strace命令可以查看到系统的调用，这种方式的好处就是strace中，程序还是可以继续运行的，而通过gdb则会暂时中断该线程，但是strace查看的都是系统调用而非程序栈，一般来说可能定位上会比较困难。
 
   1.	abort
   
-      kill -SIGABRT <PID>或<TID>
+        kill -SIGABRT <PID>或<TID>
   
   这种方式一般用在线上不方便gdb，而且对于时效较高的系统，这样将程序crash后，然后去查看coredump的栈也可以进行分析；
   
