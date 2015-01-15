@@ -17,6 +17,14 @@
 	<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 	<link rel="icon" href="/img/favicon.ico">
 	<script>
+
+	(function(){
+		var url = window.location.href;
+	 	if (url.indexOf('baidu-lamp.github.io') !== -1) {
+	 		window.location.href = url.replace('baidu-lamp.github.io','lamp.baidu.com');
+	 	};
+	})();
+
 	  if (window.location.host.indexOf('localhost') < 0) {
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
