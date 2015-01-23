@@ -42,7 +42,7 @@ LAMP是Web开发中最流行的模式，即Linux + [Apache](http://httpd.apache.
 上述目标中，最关键的问题是如何实现**免编译任意路径安装**，因为编译的时候指定的prefix是固定的，所以要实现免编译安装，必须有一个路径替换的方案。有没有一种通用的路径替换方案呢，是有的：
 
 1. **虚拟机**，虚拟机可以满足免编译、任意系统、任意目录的要求，但是安装虚拟机需要root权限。也有一些不需要root权限的虚拟机，如[qemu](http://wiki.qemu.org/)，但严重影响性能。
-1. **cgoup相关技术**，如[docker](https://www.docker.com/)，但这仍然需要root权限。
+1. **cgroup相关技术**，如[docker](https://www.docker.com/)，但这仍然需要root权限。
 1. **用户态虚拟化技术**，如[fakechroot](https://github.com/dex4er/fakechroot)，通过LD_PRELOAD去hook libc.so相关函数实现来虚拟化路径，但是有两个缺点，一是对性能有一定影响，二是稳定性较差，比如[fakechroot和jemalloc有冲突](https://github.com/dex4er/fakechroot/issues/21)会导致HHVM死锁。
 
 如此看来，通用的路径替换方案是行不通的，但是我们可以根据具体软件的特点，来实现各自的路径替换方案：
