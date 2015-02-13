@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "baidu hhvm deploy"
+title:  "baidu hhvm 免依赖部署"
 date:   2015-02-13 17:29:00
 author: huzhiguang
 lang: cn
