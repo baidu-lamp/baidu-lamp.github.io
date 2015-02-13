@@ -139,3 +139,10 @@ Baidu hhvm 下载地址：
 遇到的问题可以提交到issue中，我们后期会进行解决：
 
 	https://github.com/baidu-lamp/baidu-hhvm/issues
+	
+#### 联系方式
+
+QQ群：
+
+HHVM学习研究B：387626087
+
