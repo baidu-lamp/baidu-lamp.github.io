@@ -11,11 +11,11 @@ cover_title: "HHVM应用实践"
 1. HHVM编译及安装
 1. HHVM配置
 	1. 推荐配置
-1. 运维方式
-	1. 进程存活
-	1. JIT预热
-	1. 应用迁移方式
-	1. 监控
+1. 运维篇
+	1. [背景](http://lamp.baidu.com/hhvm/hhvm-in-action/operation-server-1 '背景')
+	1. [服务安全](http://lamp.baidu.com/hhvm/hhvm-in-action/operation-server-2 '服务安全')
+	1. 监控报警
+	1. 迁移方式
 
 ## 开发篇
 
