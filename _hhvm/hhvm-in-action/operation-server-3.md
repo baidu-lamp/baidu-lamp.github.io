@@ -22,7 +22,9 @@ cpu和内存设定一定的阀值，超过预定阀值进行报警告知运维�
 ### hhvm 内置监控
 
 在hhvm中有个adminserver，我们可以通过配置的端口进行访问，然后通过一些命令获取我们的信息，当我们访问端口后会获取到如下内容界面：
+
 ![admin server](/hhvm/hhvm-in-action/imgs/monitor1.png)
+
 但是其实我们一般常用的会有如下几个，其他的使用者可以去自己尝试（以3.0.1为例了）：
 
 ####	check-health
