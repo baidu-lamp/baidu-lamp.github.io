@@ -14,7 +14,7 @@ cover_title: "HHVM应用实践"
 1. 运维篇
 	1. [背景](http://lamp.baidu.com/hhvm/hhvm-in-action/operation-server-1 '背景')
 	1. [服务安全](http://lamp.baidu.com/hhvm/hhvm-in-action/operation-server-2 '服务安全')
-	1. 监控报警
+	1. [监控报警](http://lamp.baidu.com/hhvm/hhvm-in-action/operation-server-3 '监控报警')
 	1. 迁移方式
 
 ## 开发篇
