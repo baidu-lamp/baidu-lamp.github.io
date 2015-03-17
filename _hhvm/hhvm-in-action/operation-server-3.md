@@ -22,10 +22,12 @@ cpu和内存设定一定的阀值，超过预定阀值进行报警告知运维�
 ### hhvm 内置监控
 
 在hhvm中有个adminserver，我们可以通过配置的端口进行访问，然后通过一些命令获取我们的信息，当我们访问端口后会获取到如下内容界面：
- 
+![admin server](/hhvm/hhvm-in-action/imgs/monitor1.png)
 但是其实我们一般常用的会有如下几个，其他的使用者可以去自己尝试（以3.0.1为例了）：
 
 ####	check-health
+ 
+ ![Check-health](/hhvm/hhvm-in-action/imgs/monitor2.png)
  
 标红位置的是我们后来添加的监控项，默认监控项就如上这些：
 
@@ -42,6 +44,8 @@ units:是我们已经编译过的文件数量
 funcs：我们已经编译过的函数数量
 
 ####	vm-tcspace
+
+ ![vm-tcspace](/hhvm/hhvm-in-action/imgs/monitor3.png)
  
 上面的监控项中：code.hot、code.main、code.prof、code.stubs、code.trampolines都是hhvm jit
 cache项，一般如果你是用noRepoAuthoritative模式运行，会发现code.main和code.stubs会高，一般监控这些值的比例，我们线上一般是到达80%时进行重启；
