@@ -19,6 +19,10 @@ Baidu hhvm 下载地址：
 
 	http://bcs.duapp.com/hhvm-package/hhvm-3.0.1-V0.1.tar.gz
 
+bcs下载失败可以用下面地址下载：
+
+	http://pan.baidu.com/s/16qFTG
+
 ### 1.解压hhvm.tar.gz
 
 	tar zxvf hhvm.tar.gz
